@@ -1,0 +1,89 @@
+<app-nav-bar></app-nav-bar>
+<br>
+
+
+<div class="holder container" >
+  <div class="bg-light shadow-sm  holder p-1"> <small><h4>Datos de Visita</h4></small></div>
+
+  <form class="p-3" autocomplete="off" [formGroup]="myForms"  >
+    <div class="row">
+      <div class="col-md-3">
+        <label for="inputCity">DNI</label>
+        <input type="text" class="form-control " placeholder="Ingrese número" id="inputGroup-sizing-sm">
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn buttoncolor right buttonposition">Consultar</button>
+      </div>
+      <div class="col-md-6">
+        <label for="inputState">Nombre y apellido</label>
+        <p></p>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label>Nro. de tarjeta de ingreso</label>
+        <input type="text" class="form-control" placeholder="Ingrese número">
+      </div>
+      <div class="col-md-3">
+        <label>Fecha de ingreso</label>
+        <p>{{ fecha | date:'d/M/yyyy'}}</p>
+      </div>
+      <div class="col-md-6">
+        <label for="inputState">Hora de ingreso</label>
+        <p>{{ fecha | date:'h:mm a'}}</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="inputCity">Visita a</label>
+        <select id="inputState" class="form-control">
+          <option selected>Seleccione a la persona visitada</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="inputState">Sector</label>
+        <select id="inputState" class="form-control">
+          <option selected>Seleccione sector de la persona visitada</option>
+          <option>...</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn buttoncolor right">Ingresar</button>
+  </form>
+  <br>
+  <br>
+  <br>
+  <div class="bg-light shadow-sm holder p-1 m-1"> <small><h4>Historia de la visita</h4></small></div>
+  <div class="holder p-1"> <small><h4>Visitas de </h4></small></div>
+  <div class="row m-2">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Hora de Ingreso</th>
+            <th>Visitó a</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div> 
+  </div>  
+
+  
+</div>

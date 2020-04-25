@@ -1,1 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    
+    font-family: "OpenSans-bold",Helvetica,Arial,sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.holder{
+    max-width: 960px !important;
+    margin: 0 auto !important;
+}
+
+
+.color{
+    background-color: green !important;
+}
+
+
+.yellow{
+    background-color: #fcda59;
+    height: 10px;
+    width: 100%;
+    padding: 0 0 0 0;
+    margin: 0;
+}
+
+.titlenavbar h5{
+    font-weight: bold !important;
+    border-left: 2px solid #ccc;
+    padding: 10px;
+    color: #666;
+    right: 380px;
+    position: relative;
+
+
+}
+
+.titleform{
+    height: 40px;
+    
+}
+
+.buttoncolor{
+    background-color: #fcda59 !important;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333 !important;
+   
+}
+
+.buttoncolor:hover{
+    background-color:  #FDD306 !important;
+}
+
+h4{
+    font-weight: bold !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    padding-top: 10px;
+    padding-left: 5px !important;
+    
+}
+
+.colorh{
+    background-color: red;
+    
+}
+
+.left{
+    float: left;
+}
+ 
+.right{
+    float: right;
+}
+
+th{
+    font-size: 13px !important;
+}
+
+label{
+    font-weight: bold !important;
+    font-size: 12px !important;
+
+}
+
+input{
+    font-size: 14px !important;
+}
+
+select{
+    font-size: 14px !important;
+}
+
+hr{
+    color: #ccc;
+    
+}
+
+p{
+    font-size: 14px;
+    padding-top: 2px;
+}
+
+.buttonposition{
+    position: relative;
+    top: 30px;
+    right: 100px;
+}
+
