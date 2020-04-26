@@ -5,14 +5,17 @@
 <div class="holder container" >
   <div class="bg-light shadow-sm  holder p-1"> <small><h4>Datos de Visita</h4></small></div>
 
-  <form class="p-3" autocomplete="off" [formGroup]="myForms"  >
+  <form class="p-3" autocomplete="off" [formGroup]="myForms"  (ngSubmit)="ingresar()">
     <div class="row">
       <div class="col-md-3">
         <label for="inputCity">DNI</label>
-        <input type="text" class="form-control " placeholder="Ingrese número" id="inputGroup-sizing-sm">
+        <input type="text" class="form-control " placeholder="Ingrese número" id="inputGroup-sizing-sm"
+        formControlName="documento"
+        [class.is-invalid]="documentoisInvalid">
+        <small *ngIf="documentoisInvalid" class="text-danger">Ingrese un DNI valido</small>
       </div>
       <div class="col-md-3">
-        <button type="submit" class="btn buttoncolor right buttonposition">Consultar</button>
+        <button type="submit" class="btn buttoncolor right buttonposition" onclick="consultar()">Consultar</button>
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
@@ -24,7 +27,10 @@
     <div class="row">
       <div class="col-md-3">
         <label>Nro. de tarjeta de ingreso</label>
-        <input type="text" class="form-control" placeholder="Ingrese número">
+        <input type="text" class="form-control" placeholder="Ingrese número"
+        formControlName="numeroTarjeta"
+        [class.is-invalid]="numTarjetaisInvalid">
+        <small *ngIf="numTarjetaisInvalid" class="text-danger">Ingrese número de tarjeta Válido</small>
       </div>
       <div class="col-md-3">
         <label>Fecha de ingreso</label>
@@ -46,9 +52,9 @@
       </div>
       <div class="col-md-6">
         <label for="inputState">Sector</label>
-        <select id="inputState" class="form-control">
+        <select id="inputState" class="form-control" [(ngModel)]="selectedSector.id" [ngModelOptions]="{ standalone: true }" (change)="onSelect($event.target.value)" >
           <option selected>Seleccione sector de la persona visitada</option>
-          <option>...</option>
+          <option *ngFor="let sector of area" value={{sector.id}}> {{sector.sector}} </option>
         </select>
       </div>
     </div>
@@ -73,12 +79,10 @@
         </thead>
           <tbody>
             <tr>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
+              <td> </td>
+              <td> {{ fecha | date:'d/M/yyyy'}} </td>
+              <td> {{ fecha | date:'h:mm a'}} </td>
+              <td>  </td>
             </tr>
           </tbody>
       </table>
@@ -87,3 +91,17 @@
 
   
 </div>
+
+<hr>
+
+<pre>
+  estado furmulario: {{ myForms.valid }}
+
+  status: {{myForms.status}}
+  {{myForms.value | json }}
+
+ 
+</pre>
+
+{{ visito | json }}
+
