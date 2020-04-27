@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Nombre, Sector } from '../models/model.interface';
-import { personas, nombre, sector } from '../constants/data'
+import { nombre, sector } from '../constants/data'
 
 
 @Injectable()
