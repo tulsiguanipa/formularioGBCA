@@ -15,7 +15,7 @@
         <small *ngIf="documentoisInvalid" class="text-danger">Ingrese un DNI valido</small>
       </div>
       <div class="col-md-3">
-        <button type="submit" class="btn buttoncolor right buttonposition" onclick="consultar()">Consultar</button>
+        <button type="submit" class="btn buttoncolor right buttonposition" (click)="consultar()">Consultar</button>
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
@@ -45,17 +45,21 @@
     <div class="row">
       <div class="col-md-6">
         <label for="inputCity">Visita a</label>
-        <select id="inputState" class="form-control">
+       
+        <select formControlName="visita" [class.is-invalid]="visitasInvalid"  id="inputState" class="form-control">
           <option selected>Seleccione a la persona visitada</option>
-          <option>...</option>
+          <option  *ngFor="let nombre of visito" value={{nombre.id}}>{{nombre.nombre}}</option>
         </select>
+        <small *ngIf="visitasInvalid" class="text-danger">Seleccione a la persona que va visitar</small>
       </div>
       <div class="col-md-6">
         <label for="inputState">Sector</label>
-        <select id="inputState" class="form-control" [(ngModel)]="selectedSector.id" [ngModelOptions]="{ standalone: true }" (change)="onSelect($event.target.value)" >
+        <select id="inputState" formControlName="sector" [class.is-invalid]="sectorInvalid" class="form-control" (change)="onSelect($event.target.value)" >
           <option selected>Seleccione sector de la persona visitada</option>
           <option *ngFor="let sector of area" value={{sector.id}}> {{sector.sector}} </option>
+          
         </select>
+        <small *ngIf="sectorInvalid" class="text-danger">Seleccione un sector</small>
       </div>
     </div>
     <br>
@@ -78,11 +82,11 @@
           </tr>
         </thead>
           <tbody>
-            <tr>
-              <td> </td>
-              <td> {{ fecha | date:'d/M/yyyy'}} </td>
-              <td> {{ fecha | date:'h:mm a'}} </td>
-              <td>  </td>
+            <tr *ngFor="let visita of historial">
+              <td>{{ visita.id }}</td>
+              <td>{{ visita.fecha | date:'d/M/yyyy' }}</td>
+              <td>{{ visita.fecha |  date:'h:mm a' }}</td>
+              <td>{{ visita.nombre }}  </td>
             </tr>
           </tbody>
       </table>
@@ -103,5 +107,5 @@
  
 </pre>
 
-{{ visito | json }}
+
 
