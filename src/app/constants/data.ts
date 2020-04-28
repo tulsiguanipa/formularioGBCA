@@ -29,6 +29,13 @@
         fechaNacimiento: '25-09-1990',
         mensaje: ' ',
       },
+      {
+        id: 33089746,
+        apellido: 'Laurenza',
+        nombres: 'Lorena',
+        fechaNacimiento: '25-09-1990',
+        mensaje: ' ',
+      },
   ];
 
   export const sector: Sector[] = [

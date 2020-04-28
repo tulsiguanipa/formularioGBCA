@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
-        <p *ngIf="validacionDni?.length > 0; else elseBlock"><small>{{usuariotraido | json }}</small></p>
+        <p *ngIf="validacionDni?.length > 0; else elseBlock"><small>{{usuarionombre}} {{usuarioapellido}}</small></p>
         <ng-template #elseBlock><br><small class="text-danger">No se encontro ningún registro</small>  </ng-template>
       </div>
     </div>
@@ -71,7 +71,7 @@
   <br>
   <br>
   <div class="bg-light shadow-sm holder p-1 m-1"> <small><h4>Historia de la visita</h4></small></div>
-  <div class="holder p-1"> <small><h4>Visitas de </h4></small></div>
+  <div class="holder p-1"> <small><h4>Visitas de {{usuarionombre}} {{usuarioapellido}}</h4></small></div>
   <div class="row m-2">
     <div class="col">
       <table class="table">

@@ -26,7 +26,8 @@ export class IngresoComponent implements OnInit {
   myForms: FormGroup;
   pageAct = 1;
 
-  usuariotraido: any;
+  usuarionombre: string;
+  usuarioapellido: string;
 
   onSelect() {
 
@@ -96,7 +97,8 @@ export class IngresoComponent implements OnInit {
   });
     console.log(this.validacionDni);
 
-    this.usuariotraido = this.validacionDni;
+    this.usuarionombre = this.validacionDni[0].nombres;
+    this.usuarioapellido = this.validacionDni[0].apellido;
   }
 
 }
