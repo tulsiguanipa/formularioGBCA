@@ -56,6 +56,8 @@ export class IngresoComponent implements OnInit {
     return this.myForms.get('numeroTarjeta').invalid && this.myForms.get('numeroTarjeta').touched;
 }
 
+
+
   formulario() {
     this.myForms = this.fb.group({
       documento    : ['', [Validators.required, Validators.minLength(7)]],
@@ -85,13 +87,11 @@ export class IngresoComponent implements OnInit {
   }
 
   consultar() {
-
     const resultado = this.dni.filter( (document) => {
       return document.id === Number(this.myForms.value.documento);
     });
     console.log(resultado);
 
   }
-
 
 }
