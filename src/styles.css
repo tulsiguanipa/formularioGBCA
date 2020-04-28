@@ -109,3 +109,9 @@ p{
     right: 100px;
 }
 
+.custom-pagination .ngx-pagination .current {
+    background: #ccc;
+    font-size: 12px;
+    font-family: "OpenSans-bold",Helvetica,Arial,sans-serif !important;
+    font-weight: 400 !important;
+}

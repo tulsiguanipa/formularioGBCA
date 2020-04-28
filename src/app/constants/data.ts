@@ -8,6 +8,27 @@
         fechaNacimiento: '28-02-1995',
         mensaje: ' ',
       },
+      {
+        id: 94932220,
+        apellido: 'Barreto',
+        nombres: 'Elida Judith',
+        fechaNacimiento: '09-10-1966',
+        mensaje: ' ',
+      },
+      {
+        id: 5588353,
+        apellido: 'Guanipa',
+        nombres: 'Felix Rafael',
+        fechaNacimiento: '28-08-1955',
+        mensaje: ' ',
+      },
+      {
+        id: 95883843,
+        apellido: 'Guanipa',
+        nombres: 'Nandy Kumary',
+        fechaNacimiento: '25-09-1990',
+        mensaje: ' ',
+      },
   ];
 
   export const sector: Sector[] = [

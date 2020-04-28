@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
-        <p> </p>
+        <p  *ngIf="resultado"></p>
       </div>
     </div>
     <hr>
@@ -48,7 +48,7 @@
         <label for="inputCity">Visita a</label>
        
         <select formControlName="visita" [class.is-invalid]="visitasInvalid"  id="inputState" class="form-control">
-          <option selected>Seleccione a la persona visitada</option>
+          <option value="" disabled selected hidden>Seleccione a la persona visitada</option>
           <option  *ngFor="let nombre of visito" value={{nombre.id}}>{{nombre.nombre}}</option>
         </select>
         <small *ngIf="visitasInvalid" class="text-danger">Seleccione a la persona que va visitar</small>
@@ -56,8 +56,8 @@
       <div class="col-md-6">
         <label for="inputState">Sector</label>
         <select id="inputState" formControlName="sector" [class.is-invalid]="sectorInvalid" class="form-control" (change)="onSelect($event.target.value)" >
-          <option selected>Seleccione sector de la persona visitada</option>
-          <option *ngFor="let sector of area" value={{sector.id}}> {{sector.sector}} </option>
+          <option value="" disabled selected hidden>Seleccione sector de la persona visitada</option>
+          <option *ngFor="let sector of area" value={{sector.id}} > {{sector.sector}} </option>
           
         </select>
         <small *ngIf="sectorInvalid" class="text-danger">Seleccione un sector</small>
@@ -92,7 +92,9 @@
           </tbody>
       </table>
       <br>
-      <pagination-controls  class=" right " (pageChange)="pageAct = $event"></pagination-controls>
+      <pagination-controls  class="right custom-pagination" 
+                            (pageChange)="pageAct = $event"
+                            previousLabel=" " nextLabel=" "></pagination-controls>
     </div> 
     
   </div>  

@@ -22,7 +22,7 @@ export class IngresoComponent implements OnInit {
   fecha = new Date();
 
   myForms: FormGroup;
-  pageAct: number = 1; 
+  pageAct = 1;
 
   onSelect() {
 
@@ -85,9 +85,13 @@ export class IngresoComponent implements OnInit {
   }
 
   consultar() {
-    this.dni.filter( (document) => {
-      return document.id === (this.myForms.value.documento);
+
+    const resultado = this.dni.filter( (document) => {
+      return document.id === Number(this.myForms.value.documento);
     });
+    console.log(resultado);
+
   }
+
 
 }
