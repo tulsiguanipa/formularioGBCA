@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Nombre, Sector } from '../models/model.interface';
-import { nombre, sector } from '../constants/data'
+import { Nombre, Sector, Documento } from '../models/model.interface';
+import { nombre, sector, documento } from '../constants/data';
 
 
 @Injectable()
@@ -12,12 +12,15 @@ export class VisitasService {
      // p.
    // })
  // }
+  getDNI(): Documento[] {
+    return documento;
+  }
 
-  getSector(): Sector[]{
+  getSector(): Sector[] {
     return sector;
   }
 
-  getNombres(): Nombre[]{
+  getNombres(): Nombre[] {
     return nombre;
   }
 }

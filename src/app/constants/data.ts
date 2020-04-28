@@ -1,42 +1,52 @@
-  import { Nombre, Sector, Persona, Historial } from '../models/model.interface'
-  
+  import { Nombre, Sector, Persona, Historial, Documento } from '../models/model.interface';
+
+  export const documento: Documento[] = [
+      {
+        id: 95260264,
+        apellido: 'Guanipa',
+        nombres: 'Tulsi Devi',
+        fechaNacimiento: '28-02-1995',
+        mensaje: ' ',
+      },
+  ];
+
   export const sector: Sector[] = [
-    { 
+    {
       id: 1,
       sector: 'DGTAD - Legal y técnica'
     },
-    { 
+    {
       id: 2,
       sector: 'DGCL - Legales'
     },
-    { 
+    {
       id: 3,
       sector: 'DGCCON - Normativa'
     },
-    { 
+    {
       id: 4,
       sector: 'MGEYA - Mesa de entradas'
     },
-    { 
+    {
       id: 5,
       sector: 'DGPRTGD - Proyectos tecnológicos'
     },
-    { 
+    {
       id: 6,
       sector: 'DGEGRAL - Escribanía'
     },
-    { 
+    {
       id: 7,
       sector: 'UAI - Auditoria'
     },
-    { 
+    {
       id: 8,
       sector: 'SECLYT - Secretaria legal y técnica'
     },
 
   ];
 
- export const nombre: Nombre[] = [
+  export const nombre: Nombre[] = [
     {
       id: 1,
       sectorId: 1,
@@ -162,5 +172,5 @@
 
   export const historial: Historial[] = [
 
-  ]
+  ];
 

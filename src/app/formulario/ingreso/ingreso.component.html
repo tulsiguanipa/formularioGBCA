@@ -11,15 +11,16 @@
         <label for="inputCity">DNI</label>
         <input type="text" class="form-control " placeholder="Ingrese número" id="inputGroup-sizing-sm"
         formControlName="documento"
-        [class.is-invalid]="documentoisInvalid">
+        [class.is-invalid]="documentoisInvalid"
+        >
         <small *ngIf="documentoisInvalid" class="text-danger">Ingrese un DNI valido</small>
       </div>
       <div class="col-md-3">
-        <button type="submit" class="btn buttoncolor right buttonposition" (click)="consultar()">Consultar</button>
+        <button type="button" class="btn buttoncolor right buttonposition" (click)="consultar()">Consultar</button>
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
-        <p></p>
+        <p> </p>
       </div>
     </div>
     <hr>
@@ -82,7 +83,7 @@
           </tr>
         </thead>
           <tbody>
-            <tr *ngFor="let visita of historial">
+            <tr *ngFor="let visita of historial | paginate: {itemsPerPage: 5, currentPage: pageAct}">
               <td>{{ visita.id }}</td>
               <td>{{ visita.fecha | date:'d/M/yyyy' }}</td>
               <td>{{ visita.fecha |  date:'h:mm a' }}</td>
@@ -90,22 +91,17 @@
             </tr>
           </tbody>
       </table>
+      <br>
+      <pagination-controls  class=" right " (pageChange)="pageAct = $event"></pagination-controls>
     </div> 
+    
   </div>  
-
-  
+  <br>  
 </div>
 
-<hr>
 
-<pre>
-  estado furmulario: {{ myForms.valid }}
 
-  status: {{myForms.status}}
-  {{myForms.value | json }}
 
- 
-</pre>
 
 
 

@@ -2,7 +2,7 @@ export interface Nombre {
     id: number;
     nombre: string;
     sectorId: number;
-};
+}
 
 export interface Sector {
     id: number;
@@ -10,15 +10,23 @@ export interface Sector {
 }
 
 export interface Persona {
-    apellido: string,
-    nombres: string,
-    fechaNacimiento: string,
-    mensaje: string
+    apellido: string;
+    nombres: string;
+    fechaNacimiento: string;
+    mensaje: string;
 }
 
 
 export interface Historial {
-    id: number,
-    fecha: Date,
-    nombre: string
+    id: number;
+    fecha: Date;
+    nombre: string;
+}
+
+export interface Documento {
+    id: number;
+    apellido: string;
+    nombres: string;
+    fechaNacimiento: string;
+    mensaje: string;
 }

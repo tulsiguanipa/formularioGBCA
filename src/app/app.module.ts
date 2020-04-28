@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -20,7 +21,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
-import { Nombre, Sector, Historial } from '../../models/model.interface';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Nombre, Sector, Historial, Documento } from '../../models/model.interface';
 import { VisitasService } from '../../services/visitas.service';
-import { historial } from 'src/app/constants/data';
+import { documento } from 'src/app/constants/data';
+
 
 @Component({
   selector: 'app-ingreso',
@@ -14,15 +15,21 @@ export class IngresoComponent implements OnInit {
   public selectedSector: Sector = { id: 0, sector: ' '};
   public area: Sector[];
   public visito: Nombre[];
-  private historial: Historial[] = [];
+  public historial: Historial[] = [];
+  public dni: Documento[];
 
 
   fecha = new Date();
 
   myForms: FormGroup;
+  pageAct: number = 1; 
+
+  onSelect() {
+
+  }
 
   constructor( private fb: FormBuilder,
-               private visitas: VisitasService ) {
+               private visitas: VisitasService, ) {
 
     this.formulario();
   }
@@ -30,11 +37,7 @@ export class IngresoComponent implements OnInit {
   ngOnInit(): void {
     this.area = this.visitas.getSector();
     this.visito = this.visitas.getNombres();
-  }
-
-  onSelect(id: number): void {
-      // this.visito = this.visitas.getNombres().filter( item => item.sectorId === id);
-      console.log('id: ', id);
+    this.dni = this.visitas.getDNI();
   }
 
   get documentoisInvalid() {
@@ -47,7 +50,6 @@ export class IngresoComponent implements OnInit {
 
   get sectorInvalid() {
     return this.myForms.get('sector').invalid && this.myForms.get('sector').touched;
-    
   }
 
   get numTarjetaisInvalid() {
@@ -70,20 +72,22 @@ export class IngresoComponent implements OnInit {
         control.markAllAsTouched();
       });
     }
-    console.log(this.myForms); 
+    console.log(this.myForms);
     const nuevaVisita: Historial = {
-      id: Math.floor(Math.random() * 10000),
+      id: Math.floor(Math.random() * 100),
       fecha: new Date(),
       nombre: this.visito.filter((persona) => {
-        console.log(persona, Number(this.myForms.value.visita))
-        return persona.id === Number(this.myForms.value.visita)
+        return persona.id === Number(this.myForms.value.visita);
       })[0].nombre
-    }
-    this.historial.push(nuevaVisita)
-    this.myForms.reset()
+    };
+    this.historial.push(nuevaVisita);
+    this.myForms.reset();
   }
 
   consultar() {
-      console.log(this.myForms);
+    this.dni.filter( (document) => {
+      return document.id === (this.myForms.value.documento);
+    });
   }
+
 }
