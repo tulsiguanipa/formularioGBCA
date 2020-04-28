@@ -20,7 +20,8 @@
       </div>
       <div class="col-md-6">
         <label for="inputState">Nombre y apellido</label>
-        <p>hola</p>
+        <p *ngIf="validacionDni?.length > 0; else elseBlock"><small>{{usuariotraido | json }}</small></p>
+        <ng-template #elseBlock><br><small class="text-danger">No se encontro ningún registro</small>  </ng-template>
       </div>
     </div>
     <hr>

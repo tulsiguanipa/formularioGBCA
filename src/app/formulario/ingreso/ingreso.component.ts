@@ -21,8 +21,12 @@ export class IngresoComponent implements OnInit {
 
   fecha = new Date();
 
+  validacionDni: Documento[] = [];
+
   myForms: FormGroup;
   pageAct = 1;
+
+  usuariotraido: any;
 
   onSelect() {
 
@@ -63,7 +67,7 @@ export class IngresoComponent implements OnInit {
       documento    : ['', [Validators.required, Validators.minLength(7)]],
       numeroTarjeta: ['', [Validators.required]],
       visita       : ['', [Validators.required]],
-      sector       : ['', [Validators.required]]
+      sector       : ['', [Validators.required]],
     });
 
   }
@@ -87,11 +91,12 @@ export class IngresoComponent implements OnInit {
   }
 
   consultar() {
-    const resultado = this.dni.filter( (document) => {
-      return document.id === Number(this.myForms.value.documento);
-    });
-    console.log(resultado);
+    this.validacionDni = this.dni.filter((document) => {
+    return document.id === Number(this.myForms.value.documento);
+  });
+    console.log(this.validacionDni);
 
+    this.usuariotraido = this.validacionDni;
   }
 
 }
